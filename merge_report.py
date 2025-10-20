@@ -1,3 +1,38 @@
+#!/usr/bin/env python3
+"""
+Script: merge_amplicon_reports.py
+Author: Manuel Dominguez
+Version: 1.0
+Date: 2025-05-12
+
+Description:
+    This script merges multiple `.report` files (produced per-sample or per-run)
+    into a single CSV table. It reads all `.report` files from a given directory,
+    extracts read count information, and combines them by genomic coordinates.
+
+    Each file contributes one column of read counts, labeled by the filename.
+    The resulting table allows easy comparison of coverage across multiple runs.
+
+Usage:
+    python merge_report.py <directory>
+
+    If no directory is provided, the current directory is used.
+
+Input file format:
+    Tab-separated with the following columns:
+        chr, start, end, amplicon_name, read_count
+
+Output:
+    A single merged CSV file named after the run ID (or a generic name)
+    containing all read counts across input report files.
+
+Requirements:
+    - Python 3.8+
+    - pandas
+
+This script is part of the reproducible workflow described in the manuscript.
+"""
+
 import pandas as pd
 import os
 import re
@@ -56,5 +91,5 @@ merged_df.reset_index(inplace=True)
 merged_df.fillna(0, inplace=True)
 
 # Save the merged DataFrame to CSV
-merged_df.to_csv('new.csv', index=False)
+merged_df.to_csv('250512_MN01972_0181_A000H7NYKG.csv', index=False)
 
