@@ -20,8 +20,21 @@ set -euo pipefail  # safer bash settings: exit on error, undefined var, or faile
 
 # ---------------------------- CONFIGURATION ---------------------------- #
 # Input and output directories
-BCL_INPUT_DIR="/mnt/scratch1/projects/Manuel_tmp/250512_MN01972_0181_A000H7NYKGRPT"
+
+
+# Check argument provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <BCL_INPUT_DIR>"
+    exit 1
+fi
+
+# Input and output directories
+BCL_INPUT_DIR="$1"
 OUTPUT_DIR="${BCL_INPUT_DIR}/fastq"
+
+echo "BCL input directory: ${BCL_INPUT_DIR}"
+echo "Output directory: ${OUTPUT_DIR}"
+
 
 # Container image
 CONTAINER_IMAGE="docker://quay.io/nf-core/bclconvert:4.3.6"

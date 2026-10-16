@@ -41,10 +41,10 @@ BWA="apptainer exec --bind /mnt:/mnt docker://quay.io/biocontainers/bwa:0.7.18--
 # --------------------------------------------------------------------- #
 # CONSTANTS
 PLATFORM="ILLUMINA"
-EXPERIMENT_NAME="ML2379327-REAGT"
+EXPERIMENT_NAME="261013dm-miseq-msrcpcr"
 REFERENCE_GENOME="/mnt/data1/db/gcp-public-data--broad-references/hg38/v0/GIABv1mask/Homo_sapiens_assembly38.GIABv1mask.fasta"
-BED_FILE="/mnt/scratch1/projects/Manuel_tmp/tmp_name_Debora_project/05022025_Debora.bed"
-RUN_ID="H7NYKG"
+BED_FILE="/mnt/scratch1/projects/Deborah/tmp_name_Debora_project/260730_msrcpcr_manifest.bed"
+RUN_ID="MH3FL"
 
 # Input directory (required argument)
 INPUT_DIR=${1:-}
